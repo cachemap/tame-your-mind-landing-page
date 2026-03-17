@@ -1,0 +1,29 @@
+// =============================================================================
+// Shared Sass Variables
+// =============================================================================
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 900px;
+
+// Spacing
+$section-padding-mobile: 3rem;
+$section-padding-desktop: 6rem;
+$container-padding-mobile: 1.25rem;
+$container-padding-desktop: 2rem;
+$content-gap-mobile: 3rem;
+$content-gap-desktop: 4rem;
+$card-padding-mobile: 1.5rem;
+$card-padding-desktop: 2.5rem;
+
+// Typography
+$text-base: 1rem;
+$text-md: 1.0625rem;
+$text-lg: 1.125rem;
+$text-xl: 1.25rem;
+$text-2xl: 1.5rem;
+
+// Layout
+$content-max-width: 700px;
+$container-max-width: 900px;
+$header-height: 3.5rem;

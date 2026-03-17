@@ -1,0 +1,825 @@
+@use "../styles/variables" as *;
+
+// =============================================================================
+// Base
+// =============================================================================
+
+.main {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding-mobile;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 $container-padding-desktop;
+  }
+}
+
+// =============================================================================
+// Section titles
+// =============================================================================
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  text-align: left;
+
+  @media (min-width: $breakpoint-sm) {
+    text-align: center;
+  }
+}
+
+.sectionSubtitle {
+  font-size: $text-xl;
+  color: var(--muted-foreground);
+  text-align: left;
+  margin: 0 0 $card-padding-desktop;
+
+  em {
+    color: var(--primary);
+    font-style: italic;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    text-align: center;
+  }
+}
+
+// =============================================================================
+// Solution section
+// =============================================================================
+
+.solution {
+  padding: $section-padding-mobile 0;
+  background: linear-gradient(180deg, transparent 0%, oklch(0.12 0.02 269.18) 100%);
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.notThis {
+  text-align: left;
+  margin-bottom: $section-padding-mobile;
+
+  p {
+    font-size: $text-lg;
+    margin: 0 0 0.5rem;
+    color: var(--muted-foreground);
+  }
+
+  .emphasis {
+    font-size: 1.1875rem;
+    color: var(--foreground);
+    margin-top: $card-padding-mobile;
+    line-height: 1.6;
+
+    em {
+      color: var(--primary);
+    }
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    text-align: center;
+  }
+}
+
+.benefits {
+  background: oklch(1 0 0 / 5%);
+  border: 1px solid oklch(1 0 0 / 10%);
+  border-radius: calc(var(--radius) * 3);
+  padding: $card-padding-mobile;
+  backdrop-filter: blur(10px);
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $card-padding-desktop;
+  }
+}
+
+.benefitsTitle {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin: 0 0 $card-padding-mobile;
+  color: var(--foreground);
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: $text-md;
+    line-height: 1.5;
+    color: var(--foreground);
+
+    strong {
+      color: var(--primary);
+    }
+  }
+}
+
+.benefitIcon {
+  font-size: $text-xl;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+// =============================================================================
+// Phases section
+// =============================================================================
+
+.phases {
+  padding: $section-padding-mobile 0;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.phaseGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $card-padding-mobile;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $card-padding-desktop;
+  }
+}
+
+.phaseCard {
+  background: oklch(1 0 0 / 5%);
+  border: 1px solid oklch(1 0 0 / 10%);
+  border-radius: calc(var(--radius) * 2);
+  padding: $card-padding-mobile;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $card-padding-desktop;
+  }
+}
+
+.phaseNumber {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.phaseTitle {
+  font-family: var(--font-serif);
+  font-size: $text-xl;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  color: var(--foreground);
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: $text-2xl;
+  }
+}
+
+.phaseWeeks {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  font-weight: 500;
+}
+
+.phaseGoal {
+  font-size: $text-md;
+  color: var(--muted-foreground);
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.phaseTopics {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  flex: 1;
+
+  li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+
+    &::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+  }
+}
+
+.phaseOutcome {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid oklch(1 0 0 / 10%);
+
+  strong {
+    color: var(--foreground);
+  }
+}
+
+// =============================================================================
+// Momentum section
+// =============================================================================
+
+.momentum {
+  padding: $section-padding-mobile 0;
+  text-align: left;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+    text-align: center;
+  }
+}
+
+.momentumText {
+  font-size: $text-xl;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  max-width: $content-max-width;
+
+  @media (min-width: $breakpoint-sm) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.momentumHighlight {
+  font-family: var(--font-serif);
+  font-size: $text-xl;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: $card-padding-mobile 0;
+  max-width: $content-max-width;
+
+  em {
+    color: var(--primary);
+    font-style: italic;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: $text-2xl;
+    margin: $card-padding-mobile auto;
+  }
+}
+
+// =============================================================================
+// Calculator callout
+// =============================================================================
+
+.calcCallout {
+  padding: $section-padding-mobile 0;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.calcCalloutCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: $card-padding-mobile;
+  background: oklch(1 0 0 / 4%);
+  border: 1px solid oklch(1 0 0 / 10%);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius);
+
+  @media (min-width: $breakpoint-sm) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: $card-padding-desktop;
+  }
+}
+
+.calcCalloutIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 2.5rem;
+  }
+}
+
+.calcCalloutContent {
+  flex: 1;
+}
+
+.calcCalloutTitle {
+  font-family: var(--font-serif);
+  font-size: $text-xl;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 0.75rem;
+  color: var(--foreground);
+
+  em {
+    color: var(--primary);
+    font-style: italic;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: $text-2xl;
+  }
+}
+
+.calcCalloutText {
+  font-size: $text-base;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+
+  strong {
+    color: var(--primary);
+    font-weight: 700;
+  }
+}
+
+.calcCalloutLink {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: $text-lg;
+  font-weight: 700;
+  color: var(--primary-foreground);
+  background: var(--primary);
+  text-decoration: none;
+  padding: 0.625rem 1.5rem;
+  border-radius: var(--radius);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+}
+
+// =============================================================================
+// AI section
+// =============================================================================
+
+.ai {
+  padding: $section-padding-mobile 0;
+  background: oklch(0.12 0.02 269.18);
+  text-align: left;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+    text-align: center;
+  }
+}
+
+.aiText {
+  font-size: $text-lg;
+  color: var(--muted-foreground);
+  margin: 0 0 1rem;
+  max-width: $content-max-width;
+  line-height: 1.6;
+
+  em {
+    color: var(--foreground);
+    font-style: italic;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.aiHighlight {
+  font-size: $text-xl;
+  color: var(--foreground);
+  font-weight: 600;
+  margin: $card-padding-mobile 0;
+  max-width: $content-max-width;
+
+  em {
+    color: var(--primary);
+    font-style: italic;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    margin: $card-padding-mobile auto;
+  }
+}
+
+// =============================================================================
+// Differentiators section
+// =============================================================================
+
+.differentiators {
+  padding: $section-padding-mobile 0;
+  background: oklch(0.12 0.02 269.18);
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.diffGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $card-padding-mobile;
+
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $container-padding-desktop;
+  }
+}
+
+.diffCard {
+  padding: $card-padding-mobile;
+  background: oklch(1 0 0 / 4%);
+  border: 1px solid oklch(1 0 0 / 8%);
+  border-radius: calc(var(--radius) * 2);
+  backdrop-filter: blur(10px);
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $card-padding-desktop;
+  }
+
+  h3 {
+    font-family: var(--font-serif);
+    font-size: $text-lg;
+    font-weight: 700;
+    margin: 0.75rem 0 0.5rem;
+    color: var(--foreground);
+  }
+
+  p {
+    font-size: 0.9375rem;
+    color: var(--muted-foreground);
+    line-height: 1.5;
+    margin: 0;
+  }
+}
+
+.diffIcon {
+  font-size: $text-2xl;
+}
+
+// =============================================================================
+// Testimonials section
+// =============================================================================
+
+.testimonials {
+  padding: $section-padding-mobile 0;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $card-padding-desktop;
+  margin-top: $card-padding-desktop;
+}
+
+.testimonialCard {
+  padding: $card-padding-mobile;
+  background: oklch(1 0 0 / 4%);
+  border: 1px solid oklch(1 0 0 / 10%);
+  border-radius: calc(var(--radius) * 2);
+  position: relative;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $card-padding-desktop $card-padding-desktop $card-padding-mobile;
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.25rem;
+    left: $card-padding-mobile;
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--primary);
+    opacity: 0.3;
+
+    @media (min-width: $breakpoint-sm) {
+      left: $card-padding-desktop;
+      font-size: 5rem;
+    }
+  }
+}
+
+.testimonialQuote {
+  margin: 0;
+  padding: 1.5rem 0 0;
+  font-size: $text-base;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+
+  @media (min-width: $breakpoint-sm) {
+    padding-top: 2rem;
+    font-size: $text-md;
+  }
+
+  p {
+    margin: 0 0 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    color: var(--foreground);
+    font-weight: 600;
+  }
+}
+
+.testimonialAttribution {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid oklch(1 0 0 / 10%);
+}
+
+.testimonialAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.testimonialName {
+  font-size: $text-base;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.testimonialRole {
+  font-size: 0.875rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+// =============================================================================
+// CTA section
+// =============================================================================
+
+.cta {
+  padding: $section-padding-mobile 0;
+  background: linear-gradient(180deg, transparent 0%, oklch(0.10 0.02 200) 50%, oklch(0.12 0.02 269.18) 100%);
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.ctaContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $content-gap-mobile;
+  align-items: start;
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: 1fr 1fr;
+    gap: $content-gap-desktop;
+  }
+}
+
+.ctaText {
+  text-align: left;
+
+  @media (min-width: $breakpoint-sm) {
+    text-align: center;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    text-align: left;
+  }
+}
+
+.ctaTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.ctaSubtitle {
+  font-size: $text-lg;
+  color: var(--muted-foreground);
+  margin: 0 0 0.5rem;
+
+  strong {
+    color: var(--foreground);
+  }
+}
+
+.ctaPromise {
+  margin: $container-padding-desktop 0;
+  padding: $card-padding-mobile;
+  background: oklch(1 0 0 / 5%);
+  border: 1px solid oklch(1 0 0 / 10%);
+  border-radius: var(--radius);
+
+  p {
+    font-size: $text-base;
+    font-weight: 600;
+    color: var(--foreground);
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+      padding-left: $card-padding-mobile;
+      font-size: 0.9375rem;
+      color: var(--muted-foreground);
+      margin-bottom: 0.5rem;
+
+      &::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+      }
+    }
+  }
+}
+
+.ctaMotivation {
+  padding: $card-padding-mobile;
+  background: oklch(1 0 0 / 3%);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--primary);
+  border-right: 3px solid var(--primary);
+  text-align: center;
+  
+  @media (min-width: $breakpoint-sm) {
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    border: none;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    text-align: center;
+  }
+
+  p {
+    font-size: $text-base;
+    color: var(--muted-foreground);
+    margin: 0 0 0.75rem;
+    line-height: 1.5;
+
+    @media (min-width: $breakpoint-sm) {
+      margin: 0 0 0.25rem;
+    }
+  }
+
+  .chain {
+    font-weight: 600;
+    color: var(--foreground);
+    position: relative;
+
+    @media (min-width: $breakpoint-sm) {
+      padding-left: 0;
+      font-weight: 500;
+      opacity: 0.8;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .chainFinal {
+    font-family: var(--font-serif);
+    font-size: $text-lg;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: 2rem;
+    padding-left: 0;
+    text-align: center;
+
+    @media (min-width: $breakpoint-sm) {
+      font-size: $text-xl;
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      margin-top: 3rem;
+    }
+  }
+}
+
+.ctaPricing {
+  padding: $card-padding-mobile;
+  background: oklch(1 0 0 / 5%);
+  border: 1px solid oklch(1 0 0 / 10%);
+  border-radius: var(--radius);
+}
+
+.ctaPriceLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  margin: 0 0 0.25rem;
+}
+
+.ctaPrice {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0 0 0.75rem;
+
+  span {
+    font-size: $text-base;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+.ctaPriceCompare {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin: 0 0 0.5rem;
+}
+
+.ctaPriceGroup {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  font-weight: 500;
+  margin: 0;
+}
+
+.ctaForm {
+  position: sticky;
+  top: $container-padding-desktop;
+}
+
+.ctaTagline {
+  text-align: center;
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--muted-foreground);
+  margin: $card-padding-mobile 0 0;
+}
+
+// =============================================================================
+// Footer
+// =============================================================================
+
+.footer {
+  padding: $section-padding-mobile $container-padding-desktop;
+  text-align: center;
+  border-top: 1px solid var(--border);
+
+  p {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin: 0;
+  }
+}

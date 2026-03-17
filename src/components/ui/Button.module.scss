@@ -1,0 +1,125 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+// Variants
+.default {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 2px 8px oklch(0.67 0.17 153.85 / 30%);
+
+  &:hover:not(:disabled) {
+    background: oklch(0.60 0.17 153.85);
+    box-shadow: 0 4px 16px oklch(0.67 0.17 153.85 / 40%);
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+.secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+
+  &:hover:not(:disabled) {
+    background: oklch(0.85 0.02 238.66);
+  }
+}
+
+.outline {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+
+  &:hover:not(:disabled) {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: var(--foreground);
+
+  &:hover:not(:disabled) {
+    background: var(--accent);
+  }
+}
+
+// Sizes
+.sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.md {
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.9375rem;
+}
+
+.lg {
+  height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1rem;
+}
+
+// Loading state
+.spinner {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  animation: spin 1s linear infinite;
+}
+
+.spinnerTrack {
+  opacity: 0.25;
+}
+
+.spinnerPath {
+  opacity: 0.75;
+}
+
+.hiddenText {
+  visibility: hidden;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+

@@ -1,0 +1,211 @@
+@use "../../styles/variables" as *;
+
+.main {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding-mobile;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 $container-padding-desktop;
+  }
+}
+
+// =============================================================================
+// Hero
+// =============================================================================
+
+.hero {
+  padding: $section-padding-mobile 0;
+  border-bottom: 1px solid var(--border);
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: $text-xl;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.5;
+  max-width: $content-max-width;
+}
+
+// =============================================================================
+// Story
+// =============================================================================
+
+.story {
+  padding: $section-padding-mobile 0;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.storyBlock {
+  margin-bottom: $content-gap-mobile;
+
+  @media (min-width: $breakpoint-sm) {
+    margin-bottom: $content-gap-desktop;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    margin: 0 0 1.25rem;
+    color: var(--foreground);
+  }
+
+  p {
+    font-size: $text-lg;
+    color: var(--muted-foreground);
+    line-height: 1.7;
+    margin: 0 0 1rem;
+    max-width: $content-max-width;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    em {
+      color: var(--foreground);
+      font-style: italic;
+    }
+  }
+}
+
+// =============================================================================
+// Beliefs
+// =============================================================================
+
+.beliefList {
+  display: flex;
+  flex-direction: column;
+  gap: $card-padding-mobile;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: $card-padding-desktop;
+  }
+}
+
+.belief {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+
+  strong {
+    display: block;
+    font-size: $text-lg;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    font-size: $text-base;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.beliefIcon {
+  font-size: $text-2xl;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+// =============================================================================
+// CTA
+// =============================================================================
+
+.cta {
+  padding: $section-padding-mobile 0;
+  background: oklch(0.12 0.02 269.18);
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $section-padding-desktop 0;
+  }
+}
+
+.ctaCard {
+  background: oklch(1 0 0 / 5%);
+  border: 1px solid oklch(1 0 0 / 10%);
+  border-radius: calc(var(--radius) * 2);
+  padding: $card-padding-mobile;
+  backdrop-filter: blur(10px);
+  text-align: center;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: $content-gap-mobile;
+  }
+
+  h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin: 0 0 1rem;
+    color: var(--foreground);
+  }
+
+  p {
+    font-size: $text-lg;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    margin: 0 0 $card-padding-mobile;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: $text-base;
+  font-weight: 700;
+  border-radius: var(--radius);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    color: var(--primary-foreground);
+  }
+}
+
+// =============================================================================
+// Footer
+// =============================================================================
+
+.footer {
+  padding: $section-padding-mobile $container-padding-desktop;
+  text-align: center;
+  border-top: 1px solid var(--border);
+
+  p {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin: 0;
+  }
+}
