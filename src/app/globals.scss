@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Merriweather:wght@300;400;700;900&family=Roboto+Mono:wght@400;500;600&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.35 0.02 165.48);
+  --card: oklch(1.00 0 0);
+  --card-foreground: oklch(0.35 0.02 165.48);
+  --popover: oklch(1.00 0 0);
+  --popover-foreground: oklch(0.35 0.02 165.48);
+  --primary: oklch(0.67 0.17 153.85);
+  --primary-foreground: oklch(0.99 0.02 175.22);
+  --secondary: oklch(0.90 0.02 238.66);
+  --secondary-foreground: oklch(0.20 0.02 266.02);
+  --muted: oklch(0.90 0.02 240.73);
+  --muted-foreground: oklch(0.50 0.03 268.53);
+  --accent: oklch(0.90 0.02 240.73);
+  --accent-foreground: oklch(0.35 0.02 165.48);
+  --destructive: oklch(0.61 0.24 20.96);
+  --border: oklch(0.94 0.01 238.46);
+  --input: oklch(0.85 0.02 240.75);
+  --ring: oklch(0.67 0.17 153.85);
+  --radius: 0.5rem;
+
+  --font-sans: 'Lato', sans-serif;
+  --font-serif: 'Merriweather', ui-serif, Georgia, serif;
+  --font-mono: 'Roboto Mono', ui-monospace, monospace;
+
+  // Gradient colors
+  --gradient-1: oklch(0.72 0.18 160);
+  --gradient-2: oklch(0.65 0.20 200);
+  --gradient-3: oklch(0.58 0.22 280);
+  --gradient-4: oklch(0.70 0.15 320);
+}
+
+.dark {
+  --background: oklch(0.15 0.02 269.18);
+  --foreground: oklch(0.95 0.01 238.46);
+  --card: oklch(0.20 0.02 266.02);
+  --card-foreground: oklch(0.95 0.01 238.46);
+  --primary: oklch(0.67 0.17 153.85);
+  --primary-foreground: oklch(0.15 0.02 269.18);
+  --secondary: oklch(0.30 0.03 271.05);
+  --secondary-foreground: oklch(0.95 0.01 238.46);
+  --muted: oklch(0.30 0.03 271.05);
+  --muted-foreground: oklch(0.60 0.03 269.46);
+  --accent: oklch(0.30 0.03 271.05);
+  --accent-foreground: oklch(0.95 0.01 238.46);
+  --destructive: oklch(0.64 0.25 19.69);
+  --border: oklch(0.95 0.01 238.46 / 15%);
+  --input: oklch(0.95 0.01 238.46 / 20%);
+  --ring: oklch(0.67 0.17 153.85);
+
+  --gradient-1: oklch(0.55 0.20 160);
+  --gradient-2: oklch(0.50 0.22 200);
+  --gradient-3: oklch(0.45 0.24 280);
+  --gradient-4: oklch(0.52 0.18 320);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 3.5rem 0 0; // 3.5rem is the height of the fixed header
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--ring);
+  }
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+code {
+  font-family: var(--font-mono);
+}
+
+// Utility classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
