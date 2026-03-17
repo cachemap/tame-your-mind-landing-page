@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/resources", label: "Resources" },
+  { href: "/calc/compensation-impact", label: "Calculator" },
 ] as const;
 
 export function Header() {
